@@ -19,11 +19,20 @@ const PrivateRoute =({component: Component,...rest }:privateRoute) =>{
         return State.AppReducer.token
       })
       console.log("token in prvtrt:-",token);
+      if(token == null){
+        <Redirect to="/login" />
+        console.log("NO TKN")
+    }else{
+        console.log("TKN")
+
+    }
       
     return(
         <div>
             <Header/>
             <Route {...rest} render ={(props:any) =>{
+                console.log("jjjjjjj",localStorage.getItem("AuthValue"));
+                
                 if(localStorage.getItem("AuthValue")) return < Component {...props} />
                 if(!localStorage.getItem("AuthValue")) return <Redirect to="/login" />
                 }}/>

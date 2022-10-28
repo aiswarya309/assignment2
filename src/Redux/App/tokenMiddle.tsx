@@ -12,14 +12,14 @@ function tokenMiddle(data:any){
         const status =response.data.success
         const history=data.nav
         const token_login=response.data.token
-        console.log("TOKEN in tknMiddle",token)
+        console.log("TOKEN in tknMiddle",token_login)
         if(status){
           //   localStorage.clear()
-          history.push('/')
           localStorage.setItem("AuthValue","true")
           dispatch(token(token_login))
           localStorage.setItem("token",token_login)
           dispatch(authData())
+          history.push('/')
         }
         else{
           history.push('/login')

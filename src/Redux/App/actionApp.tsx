@@ -1,7 +1,12 @@
-import { AUTHDATA,TOKEN ,TOKEN_NULL} from "./typeApp";
+import { AUTHDATA,AUTHDATA_FALSE,TOKEN ,TOKEN_NULL} from "./typeApp";
 export const authData = ()=>{
     return {
         type : AUTHDATA
+    }
+}
+export const authDataFalse = ()=>{
+    return {
+        type : AUTHDATA_FALSE
     }
 }
 

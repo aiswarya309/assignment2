@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { authData } from "../../Redux/App/actionApp";
 import { useDispatch} from 'react-redux';
 import signupMiddle from '../../Redux/signup/signupMiddle'
+import './signup.css'
 
 function Signup(){
     const [signupData, setsignupData] = useState({
@@ -30,8 +31,9 @@ function Signup(){
 
     }
         return(
-            <div>
+            <div className='container_sign'>
                 <form>
+                    <b>Signup</b> <br/><br/>
                     Name: <input type="text"  onChange={(val)=>setsignupData({...signupData,email:val.target.value})} value={email}/><br/><br/>
                     Username: <input type="text"  onChange={(val)=>setsignupData({...signupData,username:val.target.value})} value={username}/><br/><br/>
                     Password: <input type="text" onChange={(val)=>setsignupData({...signupData,password:val.target.value})} value={password}/><br/><br/>

@@ -1,7 +1,8 @@
 import axios from 'axios'
 // import { signupAction } from './signupAction'
 import {authData} from './descriptionAction'
-
+import {tokenNull} from '../App/actionApp'
+import {authDataFalse} from '../App/actionApp'
 function descriptionMiddle(){
     console.log("des in")
     return function(dispatch:any){
@@ -13,8 +14,12 @@ function descriptionMiddle(){
         dispatch(authData(response.data))
         console.log("RESPONSE",response.data)
         const status =response.data.success
-        if(status === false){
-            localStorage.removeItem("token")
+        if(status == false){
+            localStorage.setItem("AuthValue","false")
+            localStorage.clear()
+            dispatch(tokenNull())
+            dispatch(authDataFalse())
+
         }
         
         })

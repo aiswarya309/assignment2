@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { authData } from "../../Redux/App/actionApp";
 import { useDispatch} from 'react-redux';
 import tokenMiddle from '../../Redux/App/tokenMiddle'
+import './login.css'
 
 function Login(){
     const [loginData, setLoginData] = useState({
@@ -27,11 +28,12 @@ function Login(){
 
     }
     useEffect(()=>{
-        localStorage.removeItem("token")
+        localStorage.clear()
     })
         return(
-            <div>
+            <div className="container_lgn">
                 <form>
+                    <b>Login</b> <br/><br/>
                     Name: <input type="text"  onChange={(val)=>setLoginData({...loginData,txtName:val.target.value})} value={txtName}/><br/><br/>
                     Password: <input type="text" onChange={(val)=>setLoginData({...loginData,password:val.target.value})} value={password}/><br/><br/>
                     <button type="button" onClick={btnClick}>Login</button>
